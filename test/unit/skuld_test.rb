@@ -30,4 +30,52 @@ class TestSkuld < MiniTest::Unit::TestCase
 
     assert_equal 39.0, skuld.debt(payer: 'Johan', sharer: 'Patrik')
   end
+
+  def test_settle_debt
+    first = {
+      payer:  'Patrik',
+      sharer: 'Johan',
+      amount: 10,
+    }
+
+    second = {
+      payer:  'Johan',
+      sharer: 'Patrik',
+      amount: 29,
+    }
+
+    expected_debt = {
+      payer:  'Johan',
+      sharer: 'Patrik',
+      amount: 19,
+    }
+
+    settled_debt = Skuld.settle_debt(first, second)
+
+    assert_equal expected_debt, settled_debt
+  end
+
+  def test_settle_even_debt
+    first = {
+      payer:  'Patrik',
+      sharer: 'Johan',
+      amount: 10,
+    }
+
+    second = {
+      payer:  'Johan',
+      sharer: 'Patrik',
+      amount: 10,
+    }
+
+    expected_debt = {
+      payer:  'Patrik',
+      sharer: 'Johan',
+      amount: 0,
+    }
+
+    settled_debt = Skuld.settle_debt(first, second)
+
+    assert_equal expected_debt, settled_debt
+  end
 end

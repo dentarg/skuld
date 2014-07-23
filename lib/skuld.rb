@@ -32,16 +32,37 @@ class Skuld
   end
 
   def all_debts
-    permutations = @people.permutation(2).to_a
+    combinations = @people.combination(2).to_a
 
-    debts = permutations.map do |permutation|
-      payer  = permutation[0]
-      sharer = permutation[1]
-      {
+    debts = combinations.map do |combination|
+      payer, sharer = combination
+      first = {
         payer:  payer,
         sharer: sharer,
         amount: debt(payer: payer, sharer: sharer)
       }
+
+      payer, sharer = combination.reverse
+      second = {
+        payer:  payer,
+        sharer: sharer,
+        amount: debt(payer: payer, sharer: sharer)
+      }
+
+      self.class.settle_debt(first, second)
+    end
+  end
+
+  def self.settle_debt(first, second)
+    first_minus_second = first[:amount] - second[:amount]
+    second_minus_first = second[:amount] - first[:amount]
+
+    if first_minus_second >= 0
+      first[:amount] = first_minus_second
+      first
+    elsif second_minus_first > 0
+      second[:amount] = second_minus_first
+      second
     end
   end
 end
