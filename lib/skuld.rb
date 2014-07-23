@@ -51,6 +51,8 @@ class Skuld
 
       self.class.settle_debt(first, second)
     end
+
+    debts.select { |debt| debt[:amount] != 0 }
   end
 
   def self.settle_debt(first, second)
