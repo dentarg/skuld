@@ -30,4 +30,18 @@ class Skuld
       cost.amount / cost.sharers.count
     end
   end
+
+  def all_debts
+    permutations = @people.permutation(2).to_a
+
+    debts = permutations.map do |permutation|
+      payer  = permutation[0]
+      sharer = permutation[1]
+      {
+        payer:  payer,
+        sharer: sharer,
+        amount: debt(payer: payer, sharer: sharer)
+      }
+    end
+  end
 end
