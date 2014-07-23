@@ -7,3 +7,8 @@
 ### Deploy
 
     git push heroku
+
+### Environment variables
+
+    GOOGLE_USER
+    GOOGLE_PASSWORD
