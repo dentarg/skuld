@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'haml'
 
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
 
