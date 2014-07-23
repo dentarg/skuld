@@ -2,7 +2,7 @@
 
 ### Start
 
-    bundle exec rackup
+    foreman run bundle exec rackup -p 7979 -E development
 
 ### Deploy
 
