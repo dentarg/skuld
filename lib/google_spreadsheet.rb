@@ -13,4 +13,8 @@ class GoogleSpreadsheet
   def people
     @spreadsheet.worksheet_by_title("Personer").rows[1..-1].flatten
   end
+
+  def title
+    @spreadsheet.title
+  end
 end

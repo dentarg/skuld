@@ -1,0 +1,12 @@
+.page-header
+  %h1= "#{@title}"
+
+%table.table.table-hover.table-bordered.table-condensed
+  %tbody
+    -@debts.each do |debt|
+      %tr
+        %td= debt[:sharer]
+        %td är skyldig
+        %td= debt[:payer]
+        %td= "#{debt[:amount].floor} kr"
+

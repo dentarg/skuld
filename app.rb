@@ -12,10 +12,6 @@ class AppController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  configure do
-    enable :inline_templates
-  end
-
   get '/' do
     'skuld'
   end
@@ -30,6 +26,7 @@ class AppController < Sinatra::Base
 
     skuld = Skuld.new(people, costs)
 
+    @title = 'test'
     @debts = skuld.all_debts
 
     haml :debts
@@ -39,23 +36,9 @@ class AppController < Sinatra::Base
     spreadsheet = GoogleSpreadsheet.new(key)
     skuld       = Skuld.new(spreadsheet.people, spreadsheet.costs)
 
+    @title = spreadsheet.title
     @debts = skuld.all_debts
 
     haml :debts
   end
 end
-
-__END__
-
-@@ layout
-%html
-  %head
-    %title skuld
-  %body
-    = yield
-
-@@ debts
-%h1 all debts
-%ul
-  -@debts.each do |debt|
-    %li= "#{debt[:sharer]} owes #{debt[:payer]} #{debt[:amount]}"
