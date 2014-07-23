@@ -3,7 +3,7 @@ class Cost
 
   def initialize(cost_row)
     @description        = cost_row[0]
-    @amount             = cost_row[1]
+    @amount             = cost_row[1].to_f
     @payer              = cost_row[2]
     @sharers            = cost_row[3].split(',').map(&:strip)
   end

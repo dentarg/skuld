@@ -4,6 +4,7 @@ require 'haml'
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
 
 require 'skuld'
+require 'google_spreadsheet'
 
 class AppController < Sinatra::Base
   configure :development do
@@ -28,6 +29,15 @@ class AppController < Sinatra::Base
     ]
 
     skuld = Skuld.new(people, costs)
+
+    @debts = skuld.all_debts
+
+    haml :debts
+  end
+
+  get '/:key' do |key|
+    spreadsheet = GoogleSpreadsheet.new(key)
+    skuld       = Skuld.new(spreadsheet.people, spreadsheet.costs)
 
     @debts = skuld.all_debts
 
