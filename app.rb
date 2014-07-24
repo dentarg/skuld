@@ -12,6 +12,10 @@ class AppController < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  configure :production do
+    require 'newrelic_rpm'
+  end
+
   get '/' do
     'skuld'
   end
