@@ -20,6 +20,9 @@ class AppController < Sinatra::Base
     'skuld'
   end
 
+  get '/favicon.ico' do
+  end
+
   get '/test' do
     people = %w(Patrik Johan Roy)
     costs  = [
