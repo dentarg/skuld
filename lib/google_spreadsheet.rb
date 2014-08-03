@@ -7,11 +7,11 @@ class GoogleSpreadsheet
   end
 
   def costs
-    @spreadsheet.worksheet_by_title("Kostnader").rows[1..-1]
+    @spreadsheet.worksheets[0].rows[1..-1]
   end
 
   def people
-    @spreadsheet.worksheet_by_title("Personer").rows[1..-1].flatten
+    @spreadsheet.worksheets[1].rows[1..-1].flatten
   end
 
   def title
