@@ -1,5 +1,39 @@
 # skuld
 
+**skuld** calculates who owes who money.
+
+The app expects a Google spreadsheeet with the following content.
+
+First worksheet:
+
+| Expense | Cost | Payed by | Shared by              |
+|---------|------|----------|------------------------|
+| Pizza   | 500  | Ross     | Ross, Monica, Chandler |
+| Coke    | 100  | Phoebe   | Rachel, Phoebe         |
+| Cake    | 1000 | Monica   | Alla                   |
+| Rent    | 5000 | Monica   | Rachel                 |
+| Rent    | 3000 | Joey     | Chandler, Ross         |
+
+Second worksheet:
+
+| People   |
+|----------|
+| Rachel   |
+| Monica   |
+| Phoebe   |
+| Joey     |
+| Chandler |
+| Ross     |
+
+Share the spreadsheet with **`skuldapp@gmail.com`** (only view access needed) and go to https://skuldapp.herokuapp.com/<[spreadsheet key]>.
+
+See [https://skuld.herokuapp.com/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][demo] for a demo.
+
+[spreadsheet key]: https://productforums.google.com/forum/#!topic/docs/Vx0rggpH9nQ
+[demo]: https://skuld.herokuapp.com/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg
+
+## Development
+
 ### Start
 
     foreman run bundle exec rackup -p 7979 -E development
