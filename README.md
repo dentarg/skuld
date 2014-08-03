@@ -2,7 +2,7 @@
 
 **skuld** calculates who owes who money.
 
-The app expects a Google spreadsheeet with the following content.
+The app expects a Google Docs spreadsheet with the following content.
 
 First worksheet:
 
