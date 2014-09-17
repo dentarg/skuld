@@ -25,7 +25,7 @@ Second worksheet:
 | Chandler |
 | Ross     |
 
-Share the spreadsheet with **`skuldapp@gmail.com`** (only view access needed) and go to https://skuldapp.herokuapp.com/<[spreadsheet key]>.
+Share the spreadsheet with **`skuldapp@gmail.com`** (only view access needed) and go to https://skuld.herokuapp.com/<[spreadsheet key]>.
 
 See [https://skuld.herokuapp.com/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][demo] for a demo (and here's a [link to the actual spreadsheet][demosheet]).
 
