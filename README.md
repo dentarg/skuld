@@ -25,12 +25,12 @@ Second worksheet:
 | Chandler |
 | Ross     |
 
-Share the spreadsheet with **`skuldapp@gmail.com`** (only view access needed) and go to https://skuld.herokuapp.com/<[spreadsheet key]>.
+Share the spreadsheet with **`skuldapp@gmail.com`** (only view access needed) and go to https://skuld.starkast.net/<[spreadsheet key]>.
 
-See [https://skuld.herokuapp.com/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][demo] for a demo (and here's a [link to the actual spreadsheet][demosheet]).
+See [https://skuld.starkast.net/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][demo] for a demo (and here's a [link to the actual spreadsheet][demosheet]).
 
 [spreadsheet key]: https://productforums.google.com/forum/#!topic/docs/Vx0rggpH9nQ
-[demo]: https://skuld.herokuapp.com/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg
+[demo]: https://skuld.starkast.net/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg
 [demosheet]: https://docs.google.com/spreadsheets/d/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg/pubhtml
 
 ## Development
