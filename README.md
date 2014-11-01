@@ -37,7 +37,7 @@ See [https://skuld.starkast.net/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][de
 
 ### Start
 
-    foreman run bundle exec rackup -p 7979 -E development
+    skuld
 
 ### Deploy
 
