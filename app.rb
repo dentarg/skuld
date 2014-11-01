@@ -17,7 +17,7 @@ class AppController < Sinatra::Base
   end
 
   get '/' do
-    'skuld'
+    haml :index
   end
 
   get '/favicon.ico' do
