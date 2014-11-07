@@ -6,7 +6,7 @@ require 'cost'
 
 class TestCost < MiniTest::Unit::TestCase
   def test_cost
-    cost_row = ['Ballerina', "30.0 kr", 'Patrik', 'Patrik, Johan, Roy']
+    cost_row = ['Ballerina', 30.0, 'Patrik', 'Patrik, Johan, Roy']
     cost     = Cost.new(cost_row)
 
     assert_equal 'Ballerina',           cost.description
