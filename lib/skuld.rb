@@ -3,7 +3,12 @@ require 'cost'
 class Skuld
   def initialize(people, cost_rows)
     @people = people
-    @costs  = cost_rows.map { |cost_row| Cost.new(cost_row) }
+    costs   = cost_rows.map { |cost_row| Cost.new(cost_row) }
+    @costs  = filter_costs(costs)
+  end
+
+  def filter_costs(costs)
+    costs.reject { |cost| cost.amount == nil }
   end
 
   def debt(payer:, sharer:)

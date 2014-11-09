@@ -18,6 +18,20 @@ class TestSkuld < MiniTest::Unit::TestCase
     assert_equal 29.0, skuld.debt(payer: 'Johan', sharer: 'Patrik')
   end
 
+  def test_debt_with_incomplete_data_no_cost_amount
+    people = %w(Patrik Johan Roy)
+    costs  = [
+      ['Kaffe',     nil,  'Johan',  'Johan, Patrik'],
+      ['Ballerina', 30.0, 'Patrik', 'Patrik, Johan, Roy'],
+      ['Bregott',   12.0, 'Johan',  'Patrik, Johan, Roy'],
+      ['Bärkasse',  50.0, 'Johan',  'Patrik, Roy'],
+    ]
+
+    skuld = Skuld.new(people, costs)
+
+    assert_equal 29.0, skuld.debt(payer: 'Johan', sharer: 'Patrik')
+  end
+
   def test_debt_with_alla
     people = %w(Patrik Johan Roy)
     costs  = [
