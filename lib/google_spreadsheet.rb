@@ -27,7 +27,9 @@ class GoogleSpreadsheet
   end
 
   def people
-    @spreadsheet.worksheets[1].rows[1..-1].flatten
+    @spreadsheet.worksheets[1].rows[1..-1].map do |name, _|
+      name
+    end
   end
 
   def title
