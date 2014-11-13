@@ -3,10 +3,10 @@
 usage=$(cat <<USAGE
 You need to install rerun to use this.
 
-  gem install rerun\n
+  gem install dotenv\n
 USAGE)
 
 command -v rerun >/dev/null 2>&1 || { echo >&2 "$usage"; exit 1; }
 
 rerun --ignore "**/*.haml" \
-    -- foreman run bundle exec rackup --port 7979 -E development
+    -- dotenv bundle exec puma
