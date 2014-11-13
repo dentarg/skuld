@@ -10,3 +10,17 @@
         %td= debt[:payer]
         %td= "#{debt[:amount].floor}"
 
+%h2 Summary
+
+%table.table.table-hover.table-bordered.table-condensed
+  %tbody
+    %thead
+      %th
+      %th Total amount to get
+      %th Total amount to pay
+    -@people.each do |person|
+      %tr
+        %td= person
+        %td= DebtsHelper.total_amount_to_get(@debts, person)
+        %td= DebtsHelper.total_amount_to_pay(@debts, person)
+
