@@ -1,5 +1,7 @@
 # skuld
 
+[![Build Status](https://travis-ci.org/dentarg/skuld.svg?branch=master)](https://travis-ci.org/dentarg/skuld)
+
 **skuld** calculates who owes who money.
 
 The app expects a Google Docs spreadsheet with the following content.
