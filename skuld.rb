@@ -3,10 +3,10 @@ require 'haml'
 
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
 
-require 'skuld'
+require 'debts'
 require 'google_spreadsheet'
 
-class AppController < Sinatra::Base
+class Skuld < Sinatra::Base
   configure :development do
     require 'sinatra/reloader'
     register Sinatra::Reloader
@@ -31,17 +31,17 @@ class AppController < Sinatra::Base
       ['Bärkasse',  50.0, 'Johan', 'Patrik, Roy'],
     ]
 
-    skuld = Skuld.new(people, costs)
+    debts = Debts.new(people, costs)
 
     @title = 'test'
-    @debts = skuld.all_debts
+    @debts = debts.all_debts
 
     haml :debts
   end
 
   get '/:key' do |key|
     spreadsheet = GoogleSpreadsheet.new(key)
-    skuld       = Skuld.new(spreadsheet.people, spreadsheet.costs)
+    skuld       = Debts.new(spreadsheet.people, spreadsheet.costs)
 
     @title = spreadsheet.title
     @debts = skuld.all_debts

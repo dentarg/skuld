@@ -57,6 +57,7 @@ DEPENDENCIES
   google_drive
   haml
   newrelic_rpm
+  rack-test
   rake
   sinatra
   sinatra-contrib

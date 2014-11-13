@@ -44,14 +44,14 @@ class Debts
       first = {
         payer:  payer,
         sharer: sharer,
-        amount: debt(payer: payer, sharer: sharer)
+        amount: debt_between(payer: payer, sharer: sharer)
       }
 
       payer, sharer = combination.reverse
       second = {
         payer:  payer,
         sharer: sharer,
-        amount: debt(payer: payer, sharer: sharer)
+        amount: debt_between(payer: payer, sharer: sharer)
       }
 
       self.class.settle_debt(first, second)

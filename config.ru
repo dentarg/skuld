@@ -3,6 +3,6 @@ $stderr.sync = true
 
 GC::Profiler.enable
 
-require './app'
+require_relative "skuld"
 
-run AppController
+run Skuld
