@@ -2,9 +2,9 @@ require 'minitest/autorun'
 
 $:.unshift File.join(File.dirname(__FILE__), '..', '..', 'lib')
 
-require 'skuld'
+require 'debts'
 
-class TestSkuld < MiniTest::Unit::TestCase
+class TestDebts < MiniTest::Unit::TestCase
   def test_debt
     people = %w(Patrik Johan Roy)
     costs  = [
@@ -13,9 +13,9 @@ class TestSkuld < MiniTest::Unit::TestCase
       ['Bärkasse',  50.0, 'Johan',  'Patrik, Roy'],
     ]
 
-    skuld = Skuld.new(people, costs)
+    debts = Debts.new(people, costs)
 
-    assert_equal 29.0, skuld.debt(payer: 'Johan', sharer: 'Patrik')
+    assert_equal 29.0, debts.debt_between(payer: 'Johan', sharer: 'Patrik')
   end
 
   def test_debt_with_incomplete_data_no_cost_amount
@@ -27,9 +27,9 @@ class TestSkuld < MiniTest::Unit::TestCase
       ['Bärkasse',  50.0, 'Johan',  'Patrik, Roy'],
     ]
 
-    skuld = Skuld.new(people, costs)
+    debts = Debts.new(people, costs)
 
-    assert_equal 29.0, skuld.debt(payer: 'Johan', sharer: 'Patrik')
+    assert_equal 29.0, debts.debt_between(payer: 'Johan', sharer: 'Patrik')
   end
 
   def test_debt_with_alla
@@ -40,9 +40,9 @@ class TestSkuld < MiniTest::Unit::TestCase
       ['Bärkasse',  50.0, 'Johan', 'Patrik, Roy'],
     ]
 
-    skuld = Skuld.new(people, costs)
+    debts = Debts.new(people, costs)
 
-    assert_equal 39.0, skuld.debt(payer: 'Johan', sharer: 'Patrik')
+    assert_equal 39.0, debts.debt_between(payer: 'Johan', sharer: 'Patrik')
   end
 
   def test_settle_debt
@@ -64,7 +64,7 @@ class TestSkuld < MiniTest::Unit::TestCase
       amount: 19,
     }
 
-    settled_debt = Skuld.settle_debt(first, second)
+    settled_debt = Debts.settle_debt(first, second)
 
     assert_equal expected_debt, settled_debt
   end
@@ -88,7 +88,7 @@ class TestSkuld < MiniTest::Unit::TestCase
       amount: 0,
     }
 
-    settled_debt = Skuld.settle_debt(first, second)
+    settled_debt = Debts.settle_debt(first, second)
 
     assert_equal expected_debt, settled_debt
   end
