@@ -43,7 +43,14 @@ See [https://skuld.starkast.net/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][de
 
 ### Deploy
 
-    git push heroku
+Just push to the master branch at GitHub:
+
+    git push
+
+Deployment is automated by the [GitHub Service Hooks](https://github.com/github/github-services) [GitHub Auto-Deployment] and [HerokuBeta].
+
+[GitHub Auto-Deployment]: https://github.com/github/github-services/blob/master/lib/services/auto_deploy.rb
+[HerokuBeta]: https://github.com/github/github-services/blob/master/lib/services/heroku_beta.rb
 
 ### Environment variables
 
