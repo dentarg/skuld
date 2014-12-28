@@ -4,7 +4,7 @@ $:.unshift File.join(File.dirname(__FILE__), '..', '..', 'lib')
 
 require 'debts'
 
-class TestDebts < MiniTest::Unit::TestCase
+class TestDebts < Minitest::Test
   def test_debt
     people = %w(Patrik Johan Roy)
     costs  = [

@@ -3,7 +3,7 @@ require "rack/test"
 
 require_relative "../../skuld"
 
-class SkuldTest < MiniTest::Unit::TestCase
+class SkuldTest < Minitest::Test
   include Rack::Test::Methods
 
   def app

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.2.0'
 
 gem 'rake'
 gem 'unicorn'
@@ -12,4 +12,8 @@ gem 'rack-test'
 
 group :development do
   gem 'puma'
+end
+
+group :test do
+  gem 'minitest'
 end

@@ -4,7 +4,7 @@ $:.unshift File.join(File.dirname(__FILE__), '..', '..', 'lib')
 
 require 'debts_helper'
 
-class TestDebtsHelper < MiniTest::Unit::TestCase
+class TestDebtsHelper < Minitest::Test
   def debts
     [
       { payer: "Johan",   sharer: "Patrik", amount: 19.0 },

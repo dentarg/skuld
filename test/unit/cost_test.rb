@@ -4,7 +4,7 @@ $:.unshift File.join(File.dirname(__FILE__), '..', '..', 'lib')
 
 require 'cost'
 
-class TestCost < MiniTest::Unit::TestCase
+class TestCost < Minitest::Test
   def test_cost
     cost_row = ['Ballerina', 30.0, 'Patrik', 'Patrik, Johan, Roy']
     cost     = Cost.new(cost_row)

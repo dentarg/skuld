@@ -13,6 +13,7 @@ GEM
     jwt (1.0.0)
     kgio (2.9.2)
     mini_portile (0.6.0)
+    minitest (5.4.3)
     multi_json (1.8.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -58,6 +59,7 @@ PLATFORMS
 DEPENDENCIES
   google_drive
   haml
+  minitest
   newrelic_rpm
   puma
   rack-test
