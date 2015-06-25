@@ -9,6 +9,7 @@ gem 'haml'
 gem 'google_drive'
 gem 'newrelic_rpm'
 gem 'rack-test'
+gem 'racksh'
 
 group :development do
   gem 'puma'

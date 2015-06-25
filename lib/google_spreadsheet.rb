@@ -1,9 +1,20 @@
-require 'google_drive'
+require "google/api_client"
+require "google_drive"
 
 class GoogleSpreadsheet
-  def initialize(key)
-    session = GoogleDrive.login(ENV.fetch('GOOGLE_USER'), ENV.fetch('GOOGLE_PASSWORD'))
-    @spreadsheet = session.spreadsheet_by_key(key)
+  def initialize(document_key)
+    private_key = ENV.fetch("GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY")
+    service_id  = ENV.fetch("GOOGLE_SERVICE_ACCOUNT_ID")
+    scopes      = ['https://www.googleapis.com/auth/drive.readonly']
+
+    client      = Google::APIClient.new(application_name: "skuld", application_version: "1.0")
+    key         = OpenSSL::PKey::RSA.new(private_key, "notasecret")
+    asserter    = Google::APIClient::JWTAsserter.new(service_id, scopes, key)
+
+    client.authorization = asserter.authorize
+
+    session = GoogleDrive.login_with_oauth(client.authorization.access_token)
+    @spreadsheet = session.spreadsheet_by_key(document_key)
   end
 
   def costs

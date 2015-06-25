@@ -27,7 +27,7 @@ Second worksheet:
 | Chandler |
 | Ross     |
 
-Share the spreadsheet with **`skuldapp@gmail.com`** (only view access needed) and go to https://skuld.starkast.net/<[spreadsheet key]>.
+Share the spreadsheet with **`492957944163-ukbkb7l0su4d7u5pr7sgb8n5psijncm8@developer.gserviceaccount.com`** (only view access needed) and go to https://skuld.starkast.net/<[spreadsheet key]>.
 
 See [https://skuld.starkast.net/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][demo] for a demo (and here's a [link to the actual spreadsheet][demosheet]).
 
@@ -54,11 +54,11 @@ Deployment is automated by the [GitHub Service Hooks](https://github.com/github/
 
 ### Environment variables
 
-    GOOGLE_USER
-    GOOGLE_PASSWORD
+    GOOGLE_SERVICE_ACCOUNT_ID
+    GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY
 
-Note: You either need to [allow less secure apps] to access the Google account, or, if you use [2-Step Verification], create an [app password].
+See [Implementing Server-Side Authorization](https://developers.google.com/drive/web/auth/web-server). Also useful, [How To Store Private Key Files In Heroku](http://ar.zu.my/how-to-store-private-key-files-in-heroku/).
 
-[allow less secure apps]: https://support.google.com/accounts/answer/6010255
-[2-Step Verification]: https://support.google.com/accounts/answer/180744?hl=en
-[app password]: https://support.google.com/accounts/answer/185833?hl=en&topic=2784804&ctx=topic
+Command to extract the private key from the `.p12` file:
+
+    openssl pkcs12 -in foo.p12 -nocerts -passin pass:notasecret -nodes
