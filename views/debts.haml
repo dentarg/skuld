@@ -2,6 +2,24 @@
   %h1= "#{@title}"
 
 %table.table.table-hover.table-bordered.table-condensed
+  - @transactions.each do |person|
+    %tr
+      %td= person.from
+      %td ska betala
+      %td= person.to
+      %td= person.amount
+
+%h3.text-muted Balance
+
+%table.table.table-hover.table-bordered.table-condensed.text-muted
+  - @balances.each do |person|
+    %tr
+      %td= person.person
+      %td= person.balance
+
+%h3.text-muted All debts
+
+%table.table.table-hover.table-bordered.table-condensed.text-muted
   %tbody
     -@debts.each do |debt|
       %tr
@@ -9,17 +27,3 @@
         %td är skyldig
         %td= debt[:payer]
         %td= "#{debt[:amount].floor}"
-
-%h2 Summary
-
-%table.table.table-hover.table-bordered.table-condensed
-  %thead
-    %th
-    %th Total amount to get
-    %th Total amount to pay
-  -@people.each do |person|
-    %tr
-      %td= person
-      %td= DebtsHelper.total_amount_to_get(@debts, person)
-      %td= DebtsHelper.total_amount_to_pay(@debts, person)
-
