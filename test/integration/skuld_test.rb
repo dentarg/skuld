@@ -19,4 +19,10 @@ class SkuldTest < Minitest::Test
     get "/test"
     assert last_response.ok?
   end
+
+  # API key needed
+  # def test_demo
+  #   get "/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg"
+  #   assert last_response.ok?
+  # end
 end
