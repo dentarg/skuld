@@ -46,6 +46,8 @@ module DebtsHelper
       a.balance = 0
       b.balance = result
 
+      return transactions if result == -1
+
       calculate_transactions(balances, transactions: transactions)
     elsif result >= 0
       transactions << Transaction.new(from: b.person, to: a.person, amount: -b.balance)
@@ -53,7 +55,7 @@ module DebtsHelper
       a.balance = result
       b.balance = 0
 
-      return transactions if result == 0
+      return transactions if [0, 1].include?(result)
 
       calculate_transactions(balances, transactions: transactions)
     end

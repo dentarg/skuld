@@ -72,4 +72,37 @@ class TestDebtsHelper < Minitest::Test
   def test_calculate_transactions
     assert_equal transactions.sort, DebtsHelper.calculate_transactions(balances).sort
   end
+
+  def debts_with_round_off_error
+    [
+      {:payer=>"Johan",   :sharer=>"Patrik",  :amount=>788.6230624999998},
+      {:payer=>"Johan",   :sharer=>"Lars",    :amount=>1441.0930625},
+      {:payer=>"Johan",   :sharer=>"Elin",    :amount=>2078.1821250000003},
+      {:payer=>"Johan",   :sharer=>"Sofia",   :amount=>1146.9935},
+      {:payer=>"Patrik",  :sharer=>"Lars",    :amount=>833.4700000000003},
+      {:payer=>"Patrik",  :sharer=>"Elin",    :amount=>1765.2590625000003},
+      {:payer=>"Patrik",  :sharer=>"Sofia",   :amount=>504.03575},
+      {:payer=>"Lars",    :sharer=>"Elin",    :amount=>733.7890625},
+      {:payer=>"Lars",    :sharer=>"Sofia",   :amount=>96.29575},
+      {:payer=>"Sofia",   :sharer=>"Elin",    :amount=>453.298}
+    ]
+  end
+
+  def transactions_with_round_off_error
+    [
+      Transaction.new(amount: 2314, from: "Elin",  to: "Patrik"),
+      Transaction.new(amount: 2717, from: "Elin",  to: "Johan"),
+      Transaction.new(amount: 1445, from: "Lars",  to: "Johan"),
+      Transaction.new(amount: 1293, from: "Sofia", to: "Johan"),
+    ]
+  end
+
+  def people_with_round_off_error
+    ["Johan", "Patrik", "Lars", "Elin", "Sofia"]
+  end
+
+  def test_calculate_transactions_with_round_off_error
+    assert_equal transactions_with_round_off_error.sort,
+      DebtsHelper.all_transactions(debts: debts_with_round_off_error, people: people_with_round_off_error).sort
+  end
 end
