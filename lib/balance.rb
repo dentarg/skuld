@@ -15,4 +15,10 @@ class Balance
   def to_a
     [person, balance]
   end
+
+  def inspect
+    vars = "@person=#{person}, @balance=#{balance}"
+
+    sprintf("#<%s:0x%x %s>", self.class.name, __id__, vars)
+  end
 end
