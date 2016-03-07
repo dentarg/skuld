@@ -30,8 +30,8 @@ class TestDebtsHelper < Minitest::Test
     ]
 
     expected_balances = [
-      ["Johan",  48],
-      ["Patrik", -9],
+      ["Johan",   48],
+      ["Patrik",  -9],
       ["Roy",    -39],
     ]
 
@@ -42,11 +42,11 @@ class TestDebtsHelper < Minitest::Test
   def balances
     data = [
       ["Patrik",    -2233],
-      ["Johan",     1306],
-      ["Thomas",    3059],
-      ["Fredrik",   -479],
-      ["Christian", -859],
-      ["Jochim",    -794],
+      ["Johan",      1306],
+      ["Thomas",     3059],
+      ["Fredrik",    -479],
+      ["Christian",  -859],
+      ["Jochim",     -794],
     ]
 
     data.map do |row|
@@ -57,10 +57,10 @@ class TestDebtsHelper < Minitest::Test
   def transactions
     data = [
       ["Patrik",    "Johan",  1306],
-      ["Patrik",    "Thomas", 927],
-      ["Fredrik",   "Thomas", 479],
-      ["Christian", "Thomas", 859],
-      ["Jochim",    "Thomas", 794],
+      ["Patrik",    "Thomas",  927],
+      ["Fredrik",   "Thomas",  479],
+      ["Christian", "Thomas",  859],
+      ["Jochim",    "Thomas",  794],
     ]
 
     data.map do |row|
