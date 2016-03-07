@@ -34,26 +34,26 @@ module DebtsHelper
   end
 
   def calculate_transactions(balances, transactions: [])
-    a = balances.select { |person| person.balance > 0 }.
+    from = balances.min_by { |person| person.balance }
+    to   = balances.select { |person| person.balance > 0 }.
       min_by { |person| person.balance }
-    b = balances.min_by { |person| person.balance }
 
-    result = a.balance + b.balance
+    result = to.balance + from.balance
 
     if result < 0
-      transactions << Transaction.new(from: b.person, to: a.person, amount: a.balance)
+      transactions << Transaction.new(from: from.person, to: to.person, amount: to.balance)
 
-      a.balance = 0
-      b.balance = result
+      to.balance   = 0
+      from.balance = result
 
       return transactions if result == -1
 
       calculate_transactions(balances, transactions: transactions)
     elsif result >= 0
-      transactions << Transaction.new(from: b.person, to: a.person, amount: -b.balance)
+      transactions << Transaction.new(from: from.person, to: to.person, amount: -from.balance)
 
-      a.balance = result
-      b.balance = 0
+      to.balance   = result
+      from.balance = 0
 
       return transactions if [0, 1].include?(result)
 
