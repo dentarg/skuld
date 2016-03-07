@@ -41,6 +41,13 @@ See [https://skuld.starkast.net/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][de
 
     skuld
 
+### Debug
+
+```ruby
+require "pry-byebug"
+binding.pry # Execution will stop here
+```
+
 ### Deploy
 
 Just push to the master branch at GitHub:

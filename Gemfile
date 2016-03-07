@@ -13,6 +13,7 @@ gem 'racksh'
 
 group :development do
   gem 'puma'
+  gem 'pry-byebug'
 end
 
 group :test do
