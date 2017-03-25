@@ -50,14 +50,7 @@ binding.pry # Execution will stop here
 
 ### Deploy
 
-Just push to the master branch at GitHub:
-
-    git push
-
-Deployment is automated by the [GitHub Service Hooks](https://github.com/github/github-services) [GitHub Auto-Deployment] and [HerokuBeta].
-
-[GitHub Auto-Deployment]: https://github.com/github/github-services/blob/master/lib/services/auto_deploy.rb
-[HerokuBeta]: https://github.com/github/github-services/blob/master/lib/services/heroku_beta.rb
+Deployment is automated by the [Heroku GitHub Deploys](https://devcenter.heroku.com/articles/github-integration#automatic-deploys). Every push to the `master` branch will trigger deployment, if CI passes.
 
 ### Environment variables
 
