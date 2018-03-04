@@ -39,14 +39,7 @@ See [https://skuld.starkast.net/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg][de
 
 ### Start
 
-    skuld
-
-### Debug
-
-```ruby
-require "pry-byebug"
-binding.pry # Execution will stop here
-```
+    ./skuld
 
 ### Deploy
 
