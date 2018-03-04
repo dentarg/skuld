@@ -20,9 +20,11 @@ class SkuldTest < Minitest::Test
     assert last_response.ok?
   end
 
-  # API key needed
-  # def test_demo
-  #   get "/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg"
-  #   assert last_response.ok?
-  # end
+  # Needs the following ENV vars to be configured
+  # * GOOGLE_SERVICE_ACCOUNT_ID
+  # * GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY
+  def test_demo
+    get "/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg"
+    assert last_response.ok?
+  end
 end

@@ -1,3 +1,5 @@
 language: ruby
 cache: bundler
 sudo: false
+env:
+  - GOOGLE_SERVICE_ACCOUNT_ID=492957944163-ukbkb7l0su4d7u5pr7sgb8n5psijncm8@developer.gserviceaccount.com
