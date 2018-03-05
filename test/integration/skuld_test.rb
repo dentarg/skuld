@@ -26,5 +26,6 @@ class SkuldTest < Minitest::Test
   def test_demo
     get "/1GQFvsrwWDAhVFwIMV3ClHwxDGKnLskgicdhc1RqXxVg"
     assert last_response.ok?
+    assert last_response.body.include?("skuld demo")
   end
 end
