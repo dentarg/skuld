@@ -78,7 +78,7 @@ GEM
     racksh (1.0.0)
       rack (>= 1.0)
       rack-test (>= 0.5)
-    rake (12.3.0)
+    rake (12.3.3)
     retriable (1.4.1)
     signet (0.8.1)
       addressable (~> 2.3)
